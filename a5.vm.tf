@@ -5,8 +5,8 @@ resource "azurerm_linux_virtual_machine" "mylinuxvm" {
   resource_group_name = "${var.business_unit}-${var.environment}-${var.resource_group_name}"
   location            = var.resource_group_location
   #size                = "Standard_DS1_v2"
-  size                = lookup(var.instance_size, var.resource_group_location)
-  admin_username      = "azureuser"
+  size           = lookup(var.instance_size, var.resource_group_location)
+  admin_username = "azureuser"
   ###splat operator using element
   ##count index is the length function 
   network_interface_ids = [azurerm_network_interface.example[each.key].id]
@@ -27,5 +27,5 @@ resource "azurerm_linux_virtual_machine" "mylinuxvm" {
     version   = "latest"
   }
   custom_data = filebase64("${path.module}/app/app.sh")
-  
+
 }

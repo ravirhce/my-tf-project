@@ -1,9 +1,9 @@
 provider "azurerm" {
   features {}
   subscription_id = var.subscription_id
-  client_id = var.client_id
-  client_secret = var.client_secret
-tenant_id = var.tenant_id
+  client_id       = var.client_id
+  client_secret   = var.client_secret
+  tenant_id       = var.tenant_id
 }
 
 variable "client_id" {
@@ -30,10 +30,10 @@ provider "azurerm" {
 
     }
     backend "azurerm" {
-        resource_group_name = "my_tf_storage"
-        storage_account_name = "mytfstate90909"
-        container = "tfstate"
-        key = "project.tfstate"
+      resource_group_name  = "my_tf_storage"
+      storage_account_name = "mytfstate90909"
+      container            = "tfstate"
+      key                  = "project.tfstate"
     }
   }
   alias = "provider2-westus"

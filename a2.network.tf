@@ -6,9 +6,9 @@ resource "azurerm_virtual_network" "myvnet" {
   address_space       = [var.virtual_network_address_space[0]]
   #address_space       = var.virtual_network_address_space
   # dns_servers         = ["10.0.0.4", "10.0.0.5"]
- lifecycle {
-   ignore_changes = [ tags, ]
- }
+  lifecycle {
+    ignore_changes = [tags, ]
+  }
   tags = {
     environment = "Production"
   }
